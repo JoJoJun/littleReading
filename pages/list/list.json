@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "图书商城",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": "true"
+}

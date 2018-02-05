@@ -1,0 +1,110 @@
+<!--logs.wxml-->
+<view class="container">
+  <view class="container-body detail-content">
+    <view class="detail-top">
+      <view class="detail-banner" bindtap="imgPreview">
+        <image src="{{detaildata.imgurl}}" mode="aspectFill" class="slide-image" />
+      </view>
+      <view class="detail-info">
+        <view class="detail-title">{{detaildata.name}}</view>
+        <view class="detail-list">
+          <view class="detail-item">
+            <text class="text-left">价格：</text>
+            <text class="text-right">
+              <text class="text-orange">{{detaildata.price}}</text>
+            </text>
+          </view>
+          <view class="detail-item">
+            <text class="text-left">页数：</text>
+            <text class="text-right">{{detaildata.pagenumber}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="text-left">作者：</text>
+            <text class="text-right" data-address="{{detaildata.author}}" bindtap="getAddress">{{detaildata.author}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="detail-block">
+      <view class="detail-block-title">基本介绍</view>
+      <view class="detail-block-content">
+        <view class="detail-list">
+          <view class="detail-item">
+            <text class="text-left">类别：</text>
+            <text class="text-right">{{detaildata.category}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="text-left">作者：</text>
+            <text class="text-right">{{detaildata.author}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="text-left">出版社：</text>
+            <text class="text-right">{{detaildata.print}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="text-left">ISBN：</text>
+            <text class="text-right">{{detaildata.isbn}}</text>
+          </view>
+        </view>
+        <view class="detail-item">{{detaildata.summary}}</view>
+      </view>
+    </view>
+    <view class="detail-block">
+      <view class="detail-block-title">评论</view>
+      <view class="detail-block-content">
+        <image class="toWrite" bindtap="toAddDiary" src="/images/add2.png"></image>
+        <view class="page">
+        </view>
+        <view class="js_dialog" id="androidDialog1" style="opacity: 1;" wx:if="{{writeDiary}}">
+          <view class="weui-mask"></view>
+          <view class="weui-dialog weui-skin_android">
+            <view class="weui-dialog__hd"><strong class="weui-dialog__title">添加评论</strong>  </view>
+            <form bindsubmit="addDiary">
+              <view class="weui-dialog__bd">
+                <view class="weui-cells__title">书名</view>
+                <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__bd">
+                      <text class="weui-input" name="title">{{detaildata.name}}</text>
+                    </view>
+                  </view>
+                </view>
+                <view class="weui-cells__title">评论内容</view>
+                <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell">
+                    <view class="weui-cell__bd">
+                      <textarea class="weui-textarea" name="content" placeholder="请写下您的评论" style="height: 3.3em" />
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="weui-dialog__ft">
+                <button class="weui-dialog__btn weui-dialog__btn_default" bindtap="noneWindows">取消</button>
+                <button loading="{{loading}}" class="weui-dialog__btn weui-dialog__btn_primary" formType="submit">提交</button>
+              </view>
+            </form>
+          </view>
+        </view>
+        <view class="js_dialog" id="androidDialog2" style="opacity: 1;" wx:if="{{modifyDiarys}}">
+          <view class="weui-mask"></view>
+          <view class="weui-dialog weui-skin_android">
+            <form bindsubmit="modifyDiary">
+              <view class="weui-dialog__bd">
+              </view>
+            </form>
+          </view>
+        </view>
+        <view class="detail-passage" wx:for="{{diaryList}}">{{item.comment}}
+          <view class="detail-passage1">
+            {{item.username}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="container-footer">
+    <text bindtap="goPurchase">{{purchase}}</text>
+    <text bindtap="goRead">试读 </text>
+    <text class="apply-btn" bindtap="collect">{{collection}}</text>
+  </view>
+</view>

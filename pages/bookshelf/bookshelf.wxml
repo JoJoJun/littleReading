@@ -1,0 +1,64 @@
+<block wx:if="{{!showLoading}}">
+  <scroll-view scroll-x="true" class="recommend_scroll_x_box">
+    <text class="recommend_hot_box" bindtap="classify" data-label="全部">全部</text>
+    <view class="recommend_hot_box" wx:for="{{labelList}}">
+      <text bindtap="classify" data-label="{{item.label}}">{{item.label}} </text>
+    </view>
+  </scroll-view>
+  <image src="/images/edit.png" class="toWrite" bindtap="onChangeShowState"></image>
+  <view class="empty" hidden="{{!isEmpty}}">
+    <text class="emem">什么也没有呦~</text>
+    <image src="/images/sad.png" class="emptyPic"></image>
+  </view>
+  <scroll-view scroll-y="true" class="goods-container">
+    <view class="goods" wx:for="{{goods}}" wx:key="goodsItem">
+      <image catchtap="myfunction" id="{{item.BookName}}" class="pic" src="{{item.pic}}"></image>
+      <view catchtap="myfunction" id="{{item.BookName}}" class="name">{{item.BookName}}</view>
+      <view class="sold">已读{{item.Percentage}}%</view>
+      <view class="price">
+        <text hidden="{{showView}}" class="delete sold" bindtap="DeleteBook" data-id="{{item.objectId}}">删除</text>
+        <icon hidden="{{showView}}" class="delete" type="clear" size="20" bindtap="DeleteBook" data-id="{{item.objectId}}" />
+        <text hidden="{{showView}}" class="delete edittext" bindtap="toAddCart" data-id="{{item.objectId}}" data-title="{{item.BookName}}">加标签</text>
+        <icon hidden="{{showView}}" class="edit" type="info" color="#989898" size="20" />
+      </view>
+      <view class="tags" wx:for="{{item.BookLabel}}" bindlongtap="deleteLabel" wx:for-item="newitem">
+        <text class="ttext" data-id="{{item.objectId}}" bindlongtap="deleteLabel" data-name="{{newitem}}">{{newitem}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="" style="opacity: 1;" wx:if="{{carts}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+      <view class="weui-dialog__title">添加标签</view>
+      <form bindsubmit="addCart">
+        <view class="weui-dialog__bd">
+          <view class="weui-cells__title">书名</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <text name="BookName" class="weui-input">{{nowTitle}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="weui-cells__title">标签</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input name="title" placeholder="小说" class="weui-input" />
+              </view>
+            </view>
+          </view>
+          <view class="weui-dialog__ft">
+            <button class="weui-dialog__btn weui-dialog__btn_default" bindtap="noneWindows">取消</button>
+            <button class="weui-dialog__btn weui-dialog__btn_primary" form-type="submit">提交</button>
+          </view>
+        </view>
+      </form>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <loading bindchange="showLoadingChange">
+    加载中...
+  </loading>
+</block>
