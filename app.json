@@ -1,0 +1,45 @@
+{
+  "pages":[
+    
+    "pages/list/list",   
+    "pages/bookshelf/bookshelf",
+    "pages/detail/detail",
+    "pages/his_reader/his_reader",
+    "pages/reader/reader",
+    "pages/my/my",
+    "pages/mybook/mybook",
+    "pages/mycollection/mycollection"
+  ],
+  "window":{
+    "backgroundTextStyle":"white",
+    "navigationBarBackgroundColor": "#f7982a",
+    "navigationBarTitleText": "小阅读",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/list/list",
+      "text": "主页",
+      "iconPath":"images/xihuan.png",
+      "selectedIconPath":"images/xihuanfill.png"
+    }, {
+      "pagePath": "pages/bookshelf/bookshelf",
+      "text": "书架",
+      "iconPath":"images/biaoxing.png",
+      "selectedIconPath":"images/biaoxingfill.png"
+    }, {
+      "pagePath": "pages/my/my",
+      "text": "我",
+      "iconPath":"images/yonghu.png",
+      "selectedIconPath":"images/yonghufill.png"
+    }],
+    "color":"#333",
+    "selectedColor":"#f7982a",
+    "backgroundColor":"#f6f6f6",
+    "borderStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}
