@@ -1,0 +1,25 @@
+
+<!--his_reader.wxml-->
+<scroll-view class="scroll_view" scroll-top="{{scrollTop}}" bindtap="showMenu" bindscroll="scroll" scroll-y="true" style="height: {{scrollHeight}}px;">
+
+  <!--
+  <loading hidden="{{hiddenn}}">
+    加载中...
+  </loading>
+-->
+  <text style="font-size: {{fontSize}}rpx">{{ttest}}</text>
+</scroll-view>
+<view class="bottom_view" style="display: {{showBottom?'flex':'none'}}">
+  <view class="text_control">
+    <view>Aa-</view>
+    <view class="pro_bar">
+      <slider value="{{fontSize}}" bindchange="slider4change" min="20" max="60" show-value/>
+    </view>
+    <view>Aa+</view>
+  </view>
+  <view class="line"></view>
+  <view class="img_control">
+    <view bindtap="LastPage">上一章</view>
+    <view bindtap="NextPage">下一章</view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<view class="container">
+<view class="header">
+		<image class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+		<view class="nickname">{{user.username}}</view>
+  
+	</view>
+  <view class="my-list">
+
+    <!--
+		<navigator class="my-item" url="../myconferencelist/myconferencelist">
+			<image src="../../images/icon_24.png" mode="aspectFit"></image>
+			<text>个人信息</text>
+		</navigator>
+		-->
+    <navigator class="my-item" url="../mybook/mybook">
+      <image src="../../images/icon_26.png" mode="aspectFit"></image>
+      <text>我的购买</text>
+    </navigator>
+    <navigator class="my-item" url="../mycollection/mycollection">
+      <image src="../../images/icon_26.png" mode="aspectFit"></image>
+      <text>我的收藏</text>
+    </navigator>
+   
+  </view>
+</view>

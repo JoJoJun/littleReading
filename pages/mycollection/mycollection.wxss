@@ -1,0 +1,79 @@
+.mycollection-list {
+  padding: 0 20rpx;
+}
+
+.mycollection-item {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+.mycollection-img {
+  width: 210rpx;
+  height: 280rpx;
+}
+
+.mycollection-item image {
+  width: 210rpx;
+  height: 280rpx;
+}
+
+.mycollection-text {
+  flex: 1;
+  margin-left: 20rpx;
+  width: 100%;
+}
+
+.mycollection-text .mycollection-tite {
+  color: #333;
+  width: 100%;
+  font-size: 34rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mycollection-tags {
+  margin: 6rpx 0;
+}
+
+.mycollection-tags text {
+  padding: 6rpx 16rpx;
+  border: 1rpx solid #f7982a;
+  line-height: 1;
+  color: #f7982a;
+  font-size: 28rpx;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  white-space: nowrap;
+}
+
+.mycollection-author {
+  color: #666;
+}
+
+.mycollection-isPurchase {
+  color: #666;
+  align-items: right;
+}
+
+.empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emem {
+  text-align: center;
+}
+
+.emptyPic {
+  display: flex;
+  width: 80rpx;
+  height: 80rpx;
+  justify-content: center;
+  align-items: center;
+}
